@@ -1,6 +1,8 @@
 jscache
 =======
 
+	npm install jscache
+	
 Simple, efficient Javascript cache with regions, for NodeJS or Client side use.
 
 This cache is optimized for cleanouts only ever x number of seconds (default is 60).  If an object is fetched that has
