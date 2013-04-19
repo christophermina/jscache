@@ -161,4 +161,8 @@ _.extend(JSCache.prototype, {
 
 });
 
-module.exports = JSCache;
+
+if (typeof module != 'undefined') {
+    module.exports = JSCache;
+}
+return JSCache;
