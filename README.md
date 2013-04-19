@@ -17,7 +17,7 @@ Example of creating a new cache instance by initializing JSCache.
 
 <b>Node</b>
 
-
+		//using npm
 		var JSCache = require('jscache');
 		var cache = new JSCache({
   			ttl: 120,    //default Time to live is 60
@@ -27,7 +27,7 @@ Example of creating a new cache instance by initializing JSCache.
 
 <b>Client</b>
 
-	require(['path/to/dir/jscache'], function(jscache) {
+	require(['path/to/dir/js-cache'], function(jscache) {
   		var cache = new jscache({
     			ttl:120, //default is 60
     			refresh:20 //default is 61
