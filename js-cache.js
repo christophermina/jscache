@@ -46,7 +46,6 @@ _.extend(JSCache.prototype, {
 
 
     checkTTL: function(region) {
-        console.log("Cleaning JSCache for region: " + (region ? region : "default"));
         var cache = this.getRegion(region);
         _.each(cache, function(obj, key, _cache) {
             if (obj.exp < new Date().getTime()) {
