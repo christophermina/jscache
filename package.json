@@ -1,9 +1,27 @@
 {
   "name": "jscache",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "private": false,
-
   "dependencies": {
-    "underscore":"1.4.4"
-  }
+    "underscore": "1.4.4"
+  },
+  "readmeFilename": "README.md",
+  "gitHead": "13aa11aa1f238252cad665e5b279c488b55112e0",
+  "description": "jscache =======",
+  "main": "js-cache.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/christophermina/jscache.git"
+  },
+  "keywords": [
+    "Cache",
+    "Javascript",
+    "Node",
+    "Client"
+  ],
+  "author": "Christopher Mina",
+  "license": "BSD"
 }
