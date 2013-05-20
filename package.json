@@ -1,6 +1,6 @@
 {
   "name": "jscache",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "private": false,
   "dependencies": {
     "underscore": "1.4.4"
