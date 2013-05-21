@@ -3,7 +3,7 @@ jscache
 
 	npm install jscache
 	
-Simple, efficient Javascript cache with regions, for NodeJS or Client side use.
+Simple, efficient Javascript cache with regions, for NodeJS or Client side use.  (Now supports node clustering!)
 
 This cache is optimized for cleanouts only ever x number of seconds (default is 60).  If an object is fetched that has
 expired, but the cleaner has not run, it will be removed immediately and a null value is returned.  
