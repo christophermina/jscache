@@ -61,4 +61,25 @@ To remove from cache
 To clear (evict) the cache or a region
 
   	cache.clearAll([region])
+  	
+  	
+----- UPDATE
+Added Node Clustering support for JSCache
 
+With node clustering, each process is its own and data is not shared across.  This can lead to stale or inconsistent data.  However, with standard Node clustering ie: **require('cluster')** worker processes can subscribe to event messages from the master, and vice-versa.  We leverage this event structure and allow a worker process to dispatch an event on applicable cache operations (set, touch, remove, clearall).  The master receives this message and proxies out to the other workers.
+
+There are several options to customize how jscache works under a clustered environment, from the example above:
+
+	
+	//using npm
+	var JSCache = require('jscache');
+	var cache = new JSCache({
+  		ttl: 120,    //default Time to live is 60
+  		refresh:20  //Default refresh rate. is 61
+  		cluster: {
+  			enabled: true | false,  //defaults to true
+  			nullOnSet: true | false  //defaults to false
+  		}
+	});
+	
+In this example, you can override the default cluster behavior (only when running in NodeJS clustered mode) by setting enabled = false or nullOnSet = true.  Enabled = false will simply turn off the clustering capabilities.  nullOnSet will cause, on any set operation, the value to be nulled out, and thus pulled from the DB the next time it is required on that process. The benefit here is to keep size down.  On a single set operation, with the default paramaters, a single piece of data stored in the cache will be duplicated to every other process. This could lead to very large RAM usage, depending on the type of data.  If your DB is very quick and the data being cached is not highly used, you may consider setting nullOnSet = false.  This is a better option than disabling caching alltogether, as it prevents from stale data.
